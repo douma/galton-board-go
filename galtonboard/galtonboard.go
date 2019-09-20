@@ -51,11 +51,7 @@ func TrayListFromlength(length int) []Tray {
 }
 
 func(t Tray) WithBullet(bullet Bullet) Tray {
-	var list []Bullet;
-
-	for i := 0; i<len(t.Bullets); i++ {
-		list = append(list, t.Bullets[i])
-	}
+	var list []Bullet = t.Bullets;
 	list = append(list, bullet)
 	return Tray{Number: t.Number, Bullets: list}
 }
