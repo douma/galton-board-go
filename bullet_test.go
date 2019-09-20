@@ -13,3 +13,23 @@ func TestBulletShouldBeConstructedFromLength(t *testing.T) {
 		t.Errorf("The list has an invalid length: %d, wanted: 10", len(list))
 	}
 }
+
+func TestShouldDropLeftAndReturnNewBullet(t *testing.T) {
+	var list []galtonboard.Bullet = galtonboard.ListFromlength(1);
+	var bullet galtonboard.Bullet = list[0];
+	var newBullet galtonboard.Bullet = bullet.DropLeft();
+
+	if(newBullet.GetPosition() == bullet.GetPosition()) {
+		t.Errorf("Bullets should defer")
+	}
+}
+
+func TestShouldDropRightAndReturnNewBullet(t *testing.T) {
+	var list []galtonboard.Bullet = galtonboard.ListFromlength(1);
+	var bullet galtonboard.Bullet = list[0];
+	var newBullet galtonboard.Bullet = bullet.DropRight();
+
+	if(newBullet.GetPosition() == bullet.GetPosition()) {
+		t.Errorf("Bullets should defer")
+	}
+}
