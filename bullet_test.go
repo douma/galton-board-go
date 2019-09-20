@@ -7,7 +7,7 @@ import (
 
 func TestBulletShouldBeConstructedFromLength(t *testing.T) {
     
-	var list []galtonboard.Bullet = galtonboard.ListFromlength(10);
+	var list []galtonboard.Bullet = galtonboard.BulletListFromlength(10);
 
 	if len(list) != 10 {
 		t.Errorf("The list has an invalid length: %d, wanted: 10", len(list))
@@ -15,7 +15,7 @@ func TestBulletShouldBeConstructedFromLength(t *testing.T) {
 }
 
 func TestShouldDropLeftAndReturnNewBullet(t *testing.T) {
-	var list []galtonboard.Bullet = galtonboard.ListFromlength(1);
+	var list []galtonboard.Bullet = galtonboard.BulletListFromlength(1);
 	var bullet galtonboard.Bullet = list[0];
 	var newBullet galtonboard.Bullet = bullet.DropLeft();
 
@@ -28,7 +28,7 @@ func TestShouldDropLeftAndReturnNewBullet(t *testing.T) {
 }
 
 func TestShouldDropRightAndReturnNewBullet(t *testing.T) {
-	var list []galtonboard.Bullet = galtonboard.ListFromlength(1);
+	var list []galtonboard.Bullet = galtonboard.BulletListFromlength(1);
 	var bullet galtonboard.Bullet = list[0];
 	var newBullet galtonboard.Bullet = bullet.DropRight();
 
