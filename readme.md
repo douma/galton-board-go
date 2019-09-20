@@ -1,6 +1,6 @@
 # Galton Board 
 
-![](https://images.weserv.nl/?url=http://www.trzcacak.rs/myfile/detail/66-663588_mongodb-examples-with-golang-go-language-logo-png.png&w=300)
+![](https://images.weserv.nl/?url=https://www.trzcacak.rs/myfile/detail/66-663588_mongodb-examples-with-golang-go-language-logo-png.png&w=300)
 
 ## Run tests
 
