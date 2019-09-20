@@ -69,25 +69,25 @@ func(t Tray) GetNumberOfBullets() int {
 }
 
 type DropPolicyInterface interface {
-    Direction() string
+    direction() string
 }
 
 type LeftOrientedDropPolicy struct {}
 type RightOrientedDropPolicy struct {}
 type RandomDropPolicy struct {}
 type LeftRightSwitchDropPolicy struct {
-	lastPosition string
+	LastPosition string
 }
 
-func(p LeftOrientedDropPolicy) Direction() string {
+func(p LeftOrientedDropPolicy) direction() string {
 	return "left"
 }
 
-func(p RightOrientedDropPolicy) Direction() string {
+func(p RightOrientedDropPolicy) direction() string {
 	return "right"
 }
 
-func(p RandomDropPolicy) Direction() string {
+func(p RandomDropPolicy) direction() string {
 	rand.Seed(time.Now().UnixNano())
 	if(rand.Intn(2) == 1) {
 		return "left"
@@ -96,13 +96,12 @@ func(p RandomDropPolicy) Direction() string {
 	}
 }
 
-func(p LeftRightSwitchDropPolicy) Direction() string {
-	fmt.Println(p.lastPosition); //this is always empty
-	if(p.lastPosition == "right") {
-		p.lastPosition = "left";
+func(p *LeftRightSwitchDropPolicy) direction() string {
+	if(p.LastPosition == "right") {
+		p.LastPosition = "left";
 		return "left"
 	} else {
-		p.lastPosition = "right";
+		p.LastPosition = "right";
 		return "right"
 	}
 }
@@ -117,7 +116,7 @@ func(g GaltonBoard) DropBullets() {
 	for i := 0; i < len(g.Bullets); i++ {
 		var bullet Bullet = g.Bullets[i]
 		for x:= 0; x < g.getNumberOfDrops(); x++ {
-			if g.DropPolicy.Direction() == "right" {
+			if g.DropPolicy.direction() == "right" {
 				bullet = bullet.DropRight()
 			} else {
 				bullet = bullet.DropLeft()

@@ -22,7 +22,7 @@ func TestDropAndReturnAllBulletsInRightTray(t *testing.T) {
     
 	bullets := galtonboard.BulletListFromlength(10)
 	trays := galtonboard.TrayListFromlength(10)
-	dropPolicy := galtonboard.RightOrientedDropPolicy{}
+	dropPolicy := &galtonboard.RightOrientedDropPolicy{}
 	board := galtonboard.GaltonBoard{bullets, trays, dropPolicy}
 	board.DropBullets()
 
@@ -35,7 +35,7 @@ func TestDropAndReturnAllBulletsInMiddleTray(t *testing.T) {
     
 	bullets := galtonboard.BulletListFromlength(10)
 	trays := galtonboard.TrayListFromlength(3)
-	dropPolicy := galtonboard.LeftRightSwitchDropPolicy{}
+	dropPolicy :=&galtonboard.LeftRightSwitchDropPolicy{LastPosition: "left"}
 	board := galtonboard.GaltonBoard{bullets, trays, dropPolicy}
 	board.DropBullets()
 
