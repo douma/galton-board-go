@@ -22,6 +22,9 @@ func TestShouldDropLeftAndReturnNewBullet(t *testing.T) {
 	if(newBullet.GetPosition() == bullet.GetPosition()) {
 		t.Errorf("Bullets should defer")
 	}
+	if(newBullet.GetPosition() != -0.5) {
+		t.Errorf("Incorrect value %f, should be -0.5", newBullet.GetPosition())
+	}
 }
 
 func TestShouldDropRightAndReturnNewBullet(t *testing.T) {
@@ -31,5 +34,8 @@ func TestShouldDropRightAndReturnNewBullet(t *testing.T) {
 
 	if(newBullet.GetPosition() == bullet.GetPosition()) {
 		t.Errorf("Bullets should defer")
+	}
+	if(newBullet.GetPosition() != 0.5) {
+		t.Errorf("Incorrect value %f, should be -0.5", newBullet.GetPosition())
 	}
 }
