@@ -1,6 +1,6 @@
-# Galton Board 
+# Galton Board
 
-![](https://images.weserv.nl/?url=https://www.vertica.com/wp-content/uploads/2019/07/Golang.png&w=300)
+![](./static/golang.png)
 
 ## Run tests
 
